@@ -4,11 +4,10 @@ TAG = $$(git describe --tags --abbrev=0)
 .PHONY: init
 init:
 	git submodule update --init --recursive
-	npm install yarn -g
 
 .PHONY: audit_fix
 audit_fix:
-	yarn run yarn-audit-fix
+	bun run yarn-audit-fix
 
 .PHONY: release_prepatch
 release_prepatch:
@@ -60,60 +59,59 @@ release_major:
 
 .PHONY: analyze
 analyze:
-	yarn && yarn run analyze
+	bun i && bun run analyze
 
 .PHONY: analyze_katex
 analyze_katex:
-	cd katex && yarn && yarn run analyze
+	cd katex && bun i && bun run analyze
 
 .PHONY: build
 build: build_js build_css build_js_katex build_css_katex
 
 .PHONY: build_js
 build_js:
-	yarn && yarn run build
+	bun i && bun run build
 
 .PHONY: build_js_katex
 build_js_katex:
 	mv src/index.tsx src/index.tsx.tmp
-	cd katex && yarn && yarn run build
+	cd katex && bun i && bun run build
 	mv src/index.tsx.tmp src/index.tsx
 
 .PHONY: build_css
 build_css:
-	yarn
-	yarn run build-default-css
-	yarn run build-dark-css
-	yarn run build-darkbronco-css
-	yarn run build-dorkula-css
-	yarn run build-chesterish-css
-	yarn run build-grade3-css
-	yarn run build-gruvboxd-css
-	yarn run build-gruvboxl-css
-	yarn run build-monokai-css
-	yarn run build-oceans16-css
-	yarn run build-onedork-css
-	yarn run build-solarizedd-css
-	yarn run build-solarizedl-css
+	bun i
+	bun run build-default-css
+	bun run build-dark-css
+	bun run build-darkbronco-css
+	bun run build-dorkula-css
+	bun run build-chesterish-css
+	bun run build-grade3-css
+	bun run build-gruvboxd-css
+	bun run build-gruvboxl-css
+	bun run build-monokai-css
+	bun run build-oceans16-css
+	bun run build-onedork-css
+	bun run build-solarizedd-css
+	bun run build-solarizedl-css
 
 .PHONY: build_css_katex
 build_css_katex:
-	cd katex && yarn
-	cd katex && yarn run build-default-css
-	cd katex && yarn run build-dark-css
-	cd katex && yarn run build-darkbronco-css
-	cd katex && yarn run build-dorkula-css
-	cd katex && yarn run build-chesterish-css
-	cd katex && yarn run build-grade3-css
-	cd katex && yarn run build-gruvboxd-css
-	cd katex && yarn run build-gruvboxl-css
-	cd katex && yarn run build-monokai-css
-	cd katex && yarn run build-oceans16-css
-	cd katex && yarn run build-onedork-css
-	cd katex && yarn run build-solarizedd-css
-	cd katex && yarn run build-solarizedl-css
+	cd katex && bun i
+	cd katex && bun run build-default-css
+	cd katex && bun run build-dark-css
+	cd katex && bun run build-darkbronco-css
+	cd katex && bun run build-dorkula-css
+	cd katex && bun run build-chesterish-css
+	cd katex && bun run build-grade3-css
+	cd katex && bun run build-gruvboxd-css
+	cd katex && bun run build-gruvboxl-css
+	cd katex && bun run build-monokai-css
+	cd katex && bun run build-oceans16-css
+	cd katex && bun run build-onedork-css
+	cd katex && bun run build-solarizedd-css
+	cd katex && bun run build-solarizedl-css
 
 .PHONY: storybook
 storybook:
-	yarn && yarn run storybook
-
+	bun i && bun run storybook
