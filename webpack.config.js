@@ -7,10 +7,9 @@ module.exports = {
   resolve: {
     extensions: [".js", ".ts", ".tsx"],
     alias: {
-      // https://github.com/facebook/react/issues/20235
-      // https://github.com/facebook/create-react-app/issues/11769
-      "react/jsx-dev-runtime": "react/jsx-dev-runtime.js",
-      "react/jsx-runtime": "react/jsx-runtime.js",
+      // React 19 exports jsx-runtime differently
+      "react/jsx-dev-runtime.js": require.resolve("react/jsx-dev-runtime"),
+      "react/jsx-runtime.js": require.resolve("react/jsx-runtime"),
     },
   },
   externals: {

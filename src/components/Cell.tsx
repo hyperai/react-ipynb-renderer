@@ -81,7 +81,6 @@ export const Cell: React.FC<CellProps> = ({ cell, seq }) => {
                     }}
                   >
                     {source && (
-                      // @ts-expect-error Prisma is not assignable to ReactNode
                       <Prism
                         language={language}
                         style={{ ...prismStyle, ...styleOverridden }}
@@ -154,7 +153,7 @@ export const Cell: React.FC<CellProps> = ({ cell, seq }) => {
                   }
                   if (output.traceback) {
                     return (
-                      <div 
+                      <div
                         className="output_subarea output_error"
                         dangerouslySetInnerHTML={{
                         __html: htmlFilter(
@@ -164,7 +163,7 @@ export const Cell: React.FC<CellProps> = ({ cell, seq }) => {
                             ),
                           ),
                         ),
-                      }}>  
+                      }}>
                       </div>
                     );
                   }

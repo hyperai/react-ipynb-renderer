@@ -8,7 +8,7 @@ import { Options as MathJaxOptions } from 'rehype-mathjax/lib/create-plugin';
 import type { MarkdownProps } from '../types';
 import { Context } from '../context';
 import { remarkLatexEnvironment } from '../markdown';
-import type { PluggableList } from 'react-markdown/lib';
+import type { PluggableList } from 'unified';
 
 export type MarkdownOptionsForMathjax = {
   remarkMath?: typeof defaultRemarkMath;
@@ -26,7 +26,7 @@ export const MarkdownForMathjax: React.FC<MarkdownProps> = ({ className, text })
     mathjaxOptions = {},
   } = markdownOptions as MarkdownOptionsForMathjax;
 
-  const [rehypePlugins, setRehypePlugins] = React.useState<PluggableList>([rehypeRaw]);
+  const [rehypePlugins, setRehypePlugins] = React.useState<PluggableList>([rehypeRaw] as PluggableList);
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
       // for SSR

@@ -8,7 +8,7 @@ import type { KatexOptions } from 'katex';
 import type { MarkdownProps } from '../types';
 import { Context } from '../context';
 import { remarkLatexEnvironment } from '../markdown';
-import type { PluggableList } from 'react-markdown/lib';
+import type { PluggableList } from 'unified';
 
 export type MarkdownOptionsForKatex = {
   remarkMath?: typeof defaultRemarkMath;
